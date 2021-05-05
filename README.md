@@ -1,19 +1,24 @@
-# devops-netology
-status1:
-alexsp@alexsp-530U3C-530U4C:~/devops-netology$ git status
-On branch main
-Your branch is up to date with 'origin/main'.
+Local .terraform directories
+*/.terraform/
 
-nothing to commit, working tree clean
-status 2
-alexsp@alexsp-530U3C-530U4C:~/devops-netology$ git status
-On branch main
-Your branch is up to date with 'origin/main'.
+all .tfstate files
+*.tfstate .tfstate.
 
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-	modified:   README.md
+All Crash log files
+crash.log
 
-no changes added to commit (use "git add" and/or "git commit -a")
+Exclude all .tfvars files, which are likely to contain sentitive data, such as
+password, private keys, and other secrets. These should not be part of version
+control as they are data points which are potentially sensitive and subject
+to change depending on the environment.
+*.tfvars
 
+Ignore override files as they are usually used to override resources locally and so
+are not checked in
+override.tf override.tf.json *_override.tf *_override.tf.json
+
+Include override files you do wish to add to version control using negated pattern
+Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+example: tfplan
+Ignore CLI configuration files
+.terraformrc terraform.rc
